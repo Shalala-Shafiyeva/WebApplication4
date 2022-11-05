@@ -31,6 +31,7 @@ namespace WebApplication4.Controllers
             })
             .ToArray();
         }
+
         [HttpPost(Name = "PostWeatherForecast")]
         public List<string> Post(string weather)
         {
@@ -38,14 +39,11 @@ namespace WebApplication4.Controllers
             return Summaries;
         }
 
-        /* public int PostStatusCode(string url)
-         {
-
-         }*/
         [ProducesResponseType(statusCode:StatusCodes.Status200OK)]
         [ProducesResponseType(statusCode:StatusCodes.Status400BadRequest)]
         [ProducesResponseType(statusCode:StatusCodes.Status500InternalServerError)]
         [HttpDelete(Name = "DeleteWeatherForecast")]
+
         public IActionResult Delete(int index)
         {
             if (index < Summaries.Count)
